@@ -1,5 +1,6 @@
 from operator import itemgetter
 
+
 def read_input():
     rules_with_data = []
     with open('12_02_input.txt') as reader:

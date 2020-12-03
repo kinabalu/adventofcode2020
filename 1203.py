@@ -3,17 +3,9 @@ import operator
 
 
 def read_input():
-    forest = []
     with open('12_03_input.txt') as reader:
-        lines = reader.readlines()
-
-        for line in lines:
-            row = []
-            for pos in line.strip():
-                row.append(pos)
-
-            forest.append(row)
-    return forest
+        forest = [line.strip() for line in reader]
+        return forest
 
 
 def crawl(forest, right, down):

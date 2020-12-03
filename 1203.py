@@ -1,3 +1,7 @@
+from functools import reduce
+import operator
+
+
 def read_input():
     forest = []
     with open('12_03_input.txt') as reader:
@@ -33,7 +37,10 @@ def main():
     """
     forest = read_input()
 
-    multiplied = crawl(forest, 1, 1) * crawl(forest, 3, 1) * crawl(forest, 5, 1) * crawl(forest, 7, 1) * crawl(forest, 1, 2)
+    slopes = [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
+
+    multiplied = reduce(operator.mul, [crawl(forest, *slope) for slope in slopes])
+
     print("Tree count (3, 1): %d" % crawl(forest, 3, 1))
     print("Tree count multiplied: %d" % multiplied)
 

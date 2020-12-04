@@ -1,17 +1,3 @@
-"""
-byr (Birth Year)
-iyr (Issue Year)
-eyr (Expiration Year)
-hgt (Height)
-hcl (Hair Color)
-ecl (Eye Color)
-pid (Passport ID)
-cid (Country ID)
-"""
-from functools import reduce
-import operator
-
-
 def read_input():
     with open('12_04_input.txt') as reader:
         input_text = reader.read()
@@ -88,12 +74,13 @@ def is_valid_record(passport_record, required, extra_validation=True):
 def main():
     passports = read_input()
 
+    required_fields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
     valid_passport_count = 0
     valid_passport_validation_count = 0
 
     for passport_record in passports:
-        valid_passport_count += 1 if is_valid_record(passport_record, ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'], False) else 0
-        valid_passport_validation_count += 1 if is_valid_record(passport_record, ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']) else 0
+        valid_passport_count += 1 if is_valid_record(passport_record, required_fields, False) else 0
+        valid_passport_validation_count += 1 if is_valid_record(passport_record, required_fields) else 0
 
     print("Number of passports: %d" % len(passports))
     print("Number of valid passports: %d" % valid_passport_count)

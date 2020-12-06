@@ -13,10 +13,6 @@ def split(min, max, space):
         return math.floor(((((max - min) + 1) / 2) + min)), max
 
 
-def generate_seat_id(row, col):
-    return (row * 8) + col
-
-
 def main():
     partitions = read_input()
 
@@ -41,7 +37,7 @@ def main():
         if col_min == col_max:
             col = int(col_min)
 
-        new_seat_id = generate_seat_id(row, col)
+        new_seat_id = (row * 8) + col
         seat_ids.append(new_seat_id)
         highest_seat_id = new_seat_id if new_seat_id > highest_seat_id else highest_seat_id
 

@@ -19,18 +19,15 @@ def main():
     seat_ids = []
     highest_seat_id = None
     for partition in partitions:
-        row_min = 0
-        row_max = 127
-        row = None
+        row_min, row_max = 0, 127
+        row, col = None, None
         for row_idx in range(0, 7):
             row_min, row_max = split(row_min, row_max, partition[row_idx])
 
         if row_min == row_max:
             row = int(row_min)
 
-        col_min = 0
-        col_max = 7
-        col = None
+        col_min, col_max = 0, 7
         for col_idx in range(7, 10):
             col_min, col_max = split(col_min, col_max, partition[col_idx])
 

@@ -3,9 +3,6 @@ def read_input():
         return [line.strip() for line in reader]
 
 
-visited = set()
-
-
 def dfs(visited, graph, node):
     count = 1
     if node not in visited:
@@ -24,6 +21,7 @@ def find_contains(rules, bag_color, contained_rules = []):
             contained_rules.append(rule)
             find_contains(rules, rule, contained_rules)
     return contained_rules
+
 
 def main():
     rules = read_input()
@@ -58,10 +56,8 @@ def main():
     unique_rules = set(contained_rules)
     print("total bags that can contain shiny gold: %d" % len(unique_rules))
 
-    total_bags = dfs(visited, bag_rules, 'shiny gold') - 1
-
-    print("Total bags: %d" % total_bags)
-
+    visited = set()
+    print("Total bags: %d" % (dfs(visited, bag_rules, 'shiny gold') - 1))
 
 
 if __name__ == '__main__':

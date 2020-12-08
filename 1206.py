@@ -9,8 +9,8 @@ def read_input():
 def main():
     answers = read_input()
 
-    part1_answer_count = 0
-    part2_answer_count = 0
+    part1, part2 = 0, 0
+
     for answer in answers:
         letters = {}
         entries = answer.split('\n')
@@ -24,13 +24,13 @@ def main():
 
         for letter in letters:
             occurrence = letters[letter]
-            part2_answer_count += 1 if occurrence == len(entries) else 0
+            part2 += 1 if occurrence == len(entries) else 0
 
         answer = answer.replace("\n", "")
         unique_set = ''.join(set(answer))
-        part1_answer_count += len(unique_set)
+        part1 += len(unique_set)
 
-    print("Part 1-%d\nPart 2-%d" % (part1_answer_count, part2_answer_count))
+    print("Part 1-%d\nPart 2-%d" % (part1, part2))
 
 
 if __name__ == '__main__':

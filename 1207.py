@@ -32,7 +32,6 @@ def main():
         split_rule = rule.split('contain')
 
         bag_color = split_rule[0][:-6]
-
         contain_colors = split_rule[1].split(',')
 
         if bag_color not in bag_rules:
@@ -45,7 +44,6 @@ def main():
                 bag_rules[bag_color] = 0
                 continue
             bag_count = int(just_color[0])
-
             just_color = just_color[2:]
 
             bag_rules[bag_color][just_color] = bag_count
